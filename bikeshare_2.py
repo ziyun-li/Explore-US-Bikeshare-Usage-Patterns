@@ -12,7 +12,8 @@ cities = ['chicago','new york city','washington']
 
 def get_filters():
     """
-    Asks user to specify a city, month, and day to analyze.
+    Asks user to specify a city, month, and day to analyze via a series of questions that allows filtering for only month, only day, both, or none.
+    Code checks existing 'months' and 'days' lists to ensure input is within range, and throws out an error otherwise.
     Returns:
         (str) city - name of the city to analyze
         (str) month - name of the month to filter by, or "all" to apply no month filter
@@ -99,7 +100,6 @@ def check():
                 break
             elif check == 'n':
                 city, month, day = get_filters()
-
             else:
                 print('Please enter y for yes and n for no')
         except:
