@@ -22,6 +22,7 @@ def get_filters():
     month = 'test'
     day = 'test'
     def month():
+	# get user input for month (all, january, february, ... , june)
         while True:
             try:
                 month_raw = input('Which month? january,febuary,march,april,may or june?  ').lower()
@@ -43,7 +44,7 @@ def get_filters():
                     print('{} successfully being input.'.format(day))
                     break
                 else:
-                    print('That\'s not a valid day! Please enter a monday to sunday(non-integer).  ')
+                    print('That\'s not a valid day! Please enter a day from monday to sunday(non-integer).  ')
             except:
                 print('Invalid! Please try again.')
         return day
@@ -63,7 +64,7 @@ def get_filters():
 
     while True:
         try:
-            # get user input for month (all, january, february, ... , june)
+            # allow choice of filter by month, day, both or none
             time_filter = input('Would you like to filter the data by month, day, both, or not at all? Type "none" for no time filter.').lower()
             if time_filter == 'none':
                 month = 'all'
@@ -220,7 +221,7 @@ def main():
         city, month, day = get_filters()
         check()
         df = load_data(city, month, day)
-        raw_data=input('\nWould you like to see 5 lines of raw data? Enter yes or no.\n')
+        raw_data=input('\nWould you like to see 5 lines of raw data? Enter yes to view and no to continue.\n')
         while True:
             try:
                 if raw_data.lower() =='yes':
